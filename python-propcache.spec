@@ -3,7 +3,7 @@
 
 Name:		python-propcache
 Version:	0.3.1
-Release:	1
+Release:	2
 Summary:	Accelerated property cache
 URL:		https://pypi.org/project/propcache/
 License:	Apache-2.0
