@@ -2,15 +2,15 @@
 %define module propcache
 
 Name:		python-propcache
-Version:	0.4.1
-Release:	1
 Summary:	Accelerated property cache
-URL:		https://pypi.org/project/propcache/
+Version:	0.5.2
+Release:	1
 License:	Apache-2.0
 Group:		Development/Python
-Source0:	https://files.pythonhosted.org/packages/source/p/propcache/%{module}-%{version}.tar.gz
-BuildSystem:	python
+URL:		https://github.com/aio-libs/propcache
+Source0:	%{URL}/archive/v%{version}/%{name}-%{version}.tar.gz
 
+BuildSystem:	python
 BuildRequires:	pkgconfig(python)
 BuildRequires:	python%{pyver}dist(cython)
 BuildRequires:	python%{pyver}dist(expandvars)
@@ -21,8 +21,11 @@ BuildRequires:	python%{pyver}dist(wheel)
 %description
 Accelerated property cache
 
+%build -p
+export LDFLAGS="%{ldflags} -lpython%{pyver}"
+
 %files
+%doc CHANGES.rst README.rst
+%license LICENSE
 %{python3_sitearch}/%{module}
 %{python3_sitearch}/%{module}-%{version}.dist-info
-%license LICENSE
-%doc CHANGES.rst README.rst
